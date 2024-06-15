@@ -1,36 +1,54 @@
 <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tabla de Datos</title>
-        <style>
-            table {{
-                width: 100%;
-                border-collapse: collapse;
-                margin-bottom: 20px;
-            }}
-            th, td {{
-                border: 1px solid black;
-                padding: 8px;
-                text-align: left;
-            }}
-            th {{
-                background-color: #f2f2f2;
-            }}
-        </style>
-    </head>
-    <body>
-        <h1>Tabla de Datos</h1>
-        <table>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Data Table</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>CSV Data Table</h1>
+        <table id="data-table">
             <thead>
-                <tr>
-                    {''.join(f'<th>{header}</th>' for header in datos[0].keys())}
-                </tr>
+                <tr></tr> <!-- Table headers will be populated dynamically -->
             </thead>
             <tbody>
-                {''.join(f'<tr>{"".join(f"<td>{value}</td>" for value in row.values())}</tr>' for row in datos)}
+                <!-- Table rows will be populated dynamically -->
             </tbody>
         </table>
-    </body>
-    </html>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('data.csv')
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.trim().split('\n').map(row => row.split(','));
+                    const headers = rows.shift();
+
+                    // Populate table headers
+                    const headerRow = document.querySelector('#data-table thead tr');
+                    headers.forEach(header => {
+                        const th = document.createElement('th');
+                        th.textContent = header.trim();
+                        headerRow.appendChild(th);
+                    });
+
+                    // Populate table rows
+                    const tbody = document.querySelector('#data-table tbody');
+                    rows.forEach(row => {
+                        const tr = document.createElement('tr');
+                        row.forEach(cell => {
+                            const td = document.createElement('td');
+                            td.textContent = cell.trim();
+                            tr.appendChild(td);
+                        });
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+</body>
+</html>
