@@ -17,9 +17,16 @@ body {
 }
 
 /* Header Styling */
-h1 {
+.header {
+    background-color: #f2f2f2; /* Match this color to the th background */
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.header h1 {
     text-align: center;
     color: #333;
+    margin: 0;
 }
 
 /* Table Styling */
@@ -40,6 +47,14 @@ th {
     color: #333;
 }
 
+/* Row Hover and Alternating Colors */
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
 
 /* Smooth Transitions */
 tbody tr {
@@ -63,6 +78,10 @@ tbody tr {
 
     th, td {
         padding: 8px;
+    }
+
+    .header {
+        padding: 10px;
     }
 }
 
