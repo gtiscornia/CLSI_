@@ -1,37 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Tareas Drag & Drop</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Índice</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#seccion1">Sección 1</a></li>
-            <li><a href="#seccion2">Sección 2</a></li>
-            <li><a href="#seccion3">Sección 3</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="seccion1">
-            <h2>Sección 1</h2>
-            <p>Contenido de la sección 1...</p>
-        </section>
-        <section id="seccion2">
-            <h2>Sección 2</h2>
-            <p>Contenido de la sección 2...</p>
-        </section>
-        <section id="seccion3">
-            <h2>Sección 3</h2>
-            <p>Contenido de la sección 3...</p>
-        </section>
-    </main>
-    <footer>
-        <p>Derechos de autor © 2024</p>
-    </footer>
+<div class="container">
+    <div class="todo">
+        <h2>Tareas por hacer</h2>
+        <div class="tasks todo-tasks" id="todo-tasks">
+            <div class="task" draggable="true">Tarea 1</div>
+            <div class="task" draggable="true">Tarea 2</div>
+            <div class="task" draggable="true">Tarea 3</div>
+        </div>
+    </div>
+    <div class="todo">
+        <h2>Tareas completadas</h2>
+        <div class="tasks done-tasks" id="done-tasks"></div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
