@@ -1,38 +1,4 @@
-@media (max-width: 600px) {
-    .container {
-        padding: 10px;
-    }
-
-    th, td {
-        padding: 8px;
-    }
-}
-
-a, button, input, textarea {
-    outline: none;
-}
-
-a:focus, button:focus, input:focus, textarea:focus {
-    outline: 2px solid #4d90fe;
-    outline-offset: 2px;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #fafafa;
-}
-
-tbody tr {
-    transition: background-color 0.3s ease;
-}
-
-#loader {
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
-    color: #666;
-}
-
-
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -40,6 +6,7 @@ body {
     padding: 0;
 }
 
+/* Container Styling */
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -49,11 +16,13 @@ body {
     border-radius: 8px;
 }
 
+/* Header Styling */
 h1 {
     text-align: center;
     color: #333;
 }
 
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -71,6 +40,46 @@ th {
     color: #333;
 }
 
+/* Row Hover and Alternating Colors */
 tbody tr:hover {
     background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+/* Smooth Transitions */
+tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+/* Loader Styling */
+#loader {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+        margin: 20px;  /* Add margin to the container */
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+/* Accessibility Improvements */
+a, button, input, textarea {
+    outline: none;
+}
+
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid #4d90fe;
+    outline-offset: 2px;
 }
